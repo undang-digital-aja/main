@@ -980,6 +980,9 @@ img{
 		   -moz-column-gap: 2rem;
 		        column-gap: 2rem;
 	}
+	.nav__item{
+		margin-bottom: 0;
+	}
 	.nav__link{
 		color: #FFF !important;
 	}
