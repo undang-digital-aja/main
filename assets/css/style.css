@@ -164,6 +164,7 @@ img{
 	font-size: 1.2rem;
 	-webkit-transition: .3s;
 	transition: .3s;
+	margin-right: var(--mb-1);
 }
 .button:hover .button__icon{
 	-webkit-transform: translateX(.25rem);
@@ -176,9 +177,10 @@ img{
 	-webkit-box-align: center;
 	    -ms-flex-align: center;
 	        align-items: center;
-	-webkit-column-gap: .5rem;
-	   -moz-column-gap: .5rem;
-	        column-gap: .5rem;
+}
+.button__text{
+	display: block;
+	margin-right: .3rem;
 }
 /* ===== end button ===== */
 
@@ -234,7 +236,12 @@ img{
 	-webkit-box-direction: normal;
 	    -ms-flex-direction: column;
 	        flex-direction: column;
-	row-gap: 1.5rem;
+}
+.nav__item{
+	margin-bottom: var(--mb-3);
+}
+.nav__item:last-child{
+	margin-bottom: 0;
 }
 .nav__link{
 	color: var(--title-color) !important;
@@ -383,6 +390,10 @@ img{
 	margin-left: auto;
 	margin-right: auto;
 }
+/*.home__icon{
+	margin-left: var(--mb-1);
+	font-size: 1.2rem;
+}*/
 /* ===== end home ===== */
 
 /* ===== ABOUT ===== */
@@ -416,14 +427,15 @@ img{
 	display: -webkit-inline-box;
 	display: -ms-inline-flexbox;
 	display: inline-flex;
-	-webkit-column-gap: .5rem;
-	   -moz-column-gap: .5rem;
-	        column-gap: .5rem;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 }
 .about__details-icon{
 	font-size: 1.3rem;
 	margin-top: .15rem;
 	color: var(--title-color);
+	margin-right: var(--mb-1);
 }
 /* ===== end about ===== */
 
@@ -559,8 +571,12 @@ img{
 	    -ms-flex-align: center;
 	        align-items: center;
 }
+.paket__icon{
+	font-size: 1.2rem;
+}
+.paket__icon,
 .price__icon{
-	margin-right: .5rem;
+	margin-right: var(--mb-1);
 }
 .paket__list{
 	height: 400px;
@@ -572,9 +588,6 @@ img{
 	-webkit-box-align: center;
 	    -ms-flex-align: center;
 	        align-items: center;
-	-webkit-column-gap: .5rem;
-	   -moz-column-gap: .5rem;
-	        column-gap: .5rem;
 	color: var(--title-color) !important;
 }
 
@@ -667,7 +680,7 @@ img{
 	border-radius: .25rem;
 }
 .questions__item-title{
-	font-size: var(--h3-font-size);
+	font-size: var(--normal-font-size);
 	font-weight: var(--semi-bold);
 }
 .questions__icon{
@@ -1007,6 +1020,12 @@ img{
 		margin: 0 .5rem !important;
 	}
 	/* ===== end fitur ===== */
+
+	/* ===== FAQ ===== */
+	.questions__item-title{
+		font-size: var(--h3-font-size);
+	}
+	/* ===== end faq ===== */
 
 	/* ===== ORDER ===== */
 	.order__content{
