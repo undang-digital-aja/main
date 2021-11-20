@@ -199,6 +199,14 @@ const toggleItem = (item) =>{
 }
 // ===== end questions accordion ===== //
 
+// ===== POPUP ===== //
+const closePopup = document.getElementById('popup-close');
+const popup = document.getElementById('popup');
+
+closePopup.addEventListener('click', ()=>{
+	popup.style.display = 'none';
+});
+
 // ===== SCROLL UP ===== //
 function scrollUp(){
 	const scrollUp = document.getElementById('scroll-up');
