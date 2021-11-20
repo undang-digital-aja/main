@@ -869,7 +869,7 @@ img{
 /* ===== end scroll up ===== */
 
 /* ===== POPUP ===== */
-.popup{
+/*.popup{
 	position: fixed;
 	top: 50%;
 	-webkit-transform: translateY(-50%);
@@ -915,7 +915,7 @@ img{
 }
 .popup__description{
 	color: var(--title-color);
-}
+}*/
 /* ===== end popup ===== */
 
 /* ===== MEDIA QUERIS ===== */
@@ -1103,11 +1103,12 @@ img{
 	/* ===== end footer ===== */
 
 	/* ===== POPUP ===== */
-	.popup{
+	/*.popup{
 		left: 50%;
 		-webkit-transform: translate(-50%,-50%);
 				transform: translate(-50%,-50%);
-	}
+	}*/
+	/* ===== end popup ===== */
 }
 
 /* For large devices */

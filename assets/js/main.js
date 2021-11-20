@@ -200,12 +200,13 @@ const toggleItem = (item) =>{
 // ===== end questions accordion ===== //
 
 // ===== POPUP ===== //
-const closePopup = document.getElementById('popup-close');
-const popup = document.getElementById('popup');
+// const closePopup = document.getElementById('popup-close');
+// const popup = document.getElementById('popup');
 
-closePopup.addEventListener('click', ()=>{
-	popup.style.display = 'none';
-});
+// closePopup.addEventListener('click', ()=>{
+// 	popup.style.display = 'none';
+// });
+// ===== end popup ===== //
 
 // ===== SCROLL UP ===== //
 function scrollUp(){
