@@ -90,11 +90,8 @@ var homeSwiper = new Swiper(".home__slides", {
 
 // ===== FITUR ===== //
 let fiturSwiper = new Swiper(".fitur__slides", {
-	centeredSlides: true,
-	slidesPerView: "auto",
 	loop: 'true',
-	spaceBetween: 16,
-	grabCursor: true,
+	spaceBetween: 24,
 
 	autoplay: {
 		delay: 4500,
@@ -102,13 +99,11 @@ let fiturSwiper = new Swiper(".fitur__slides", {
 	},
 	
 	breakpoints: {
-		320: {
-			slidesPerView: 1,
-		},
 		420: {
 			slidesPerView: 2,
 		},
-		768: {
+
+		676: {
 			slidesPerView: 3,
 		},
 	},
@@ -168,6 +163,23 @@ function activeKatalog(){
 }
 linkKatalog.forEach(l=> l.addEventListener('click', activeKatalog));
 // ===== end mixitup filter katalog ===== //
+
+// ===== TESTIMONIAL ===== //
+let testimonialSwiper = new Swiper(".testimonial-swiper", {
+	spaceBetween: 30,
+	loop: 'true',
+
+	autoplay: {
+		delay: 4500,
+		disableOnInteraction: false,
+	},
+
+	navigation: {
+		nextEl: ".swiper-button-next",
+		prevEl: ".swiper-button-prev",
+	},
+});
+// ===== end testimonial ===== //
 
 // ===== QUESTIONS ACCORDION ===== //
 const accordionItems = document.querySelectorAll('.questions__item');
@@ -247,18 +259,20 @@ sectionLine.forEach((n, i) => {
 // 	n.dataset.aosDelay = i * 100;
 // });
 
-// 8. faqs -> .questions__item
+// 8. testimonial -> .testimonial-swiper, .testimonial__images
+
+// 9. faqs -> .questions__item
 const questionsItem = document.querySelectorAll('.questions__item');
 questionsItem.forEach((n, i) => {
 	n.dataset.aos = 'fade-down';
 	n.dataset.aosDelay = i * 100;
 });
 
-// 9. order -> .order__img-box, .order__content
+// 10. order -> .order__images, .order__data
 
-// 10. banner -> .banner__container
+// 11. banner -> .banner__container
 
-// 11. footer -> .footer__container, .footer__copy
+// 12. footer -> .footer__container, .footer__copy
 
 AOS.init({
 	duration: 1500,
