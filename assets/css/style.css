@@ -114,7 +114,7 @@ img{
 
 /* ===== REUSABLE CSS CLASSES ===== */
 .section{
-	padding: 5rem 0 3rem;
+	padding: 6rem 0 3rem;
 }
 .section-title{
 	font-family: var(--title-font);
@@ -228,16 +228,17 @@ img{
 	.nav__menu{
 		position: fixed;
 		background-color: #FFF;
-		width: 80%;
+		width: 100%;
 		height: 100%;
 		top: 0;
 		right: -100%;
-		box-shadow: -2px 0 4px rgba(0,0,0,.1);
-		padding: 4rem 0 0 3rem;
-		border-radius: 1rem 0 0 1rem;
+		padding: 6rem 2rem 3.5rem;
 		-webkit-transition: .3s;
 		transition: .3s;
 		z-index: var(--z-fixed);
+	}
+	.nav__link{
+		font-size: var(--h3-font-size);
 	}
 }
 .nav__list{
@@ -248,6 +249,9 @@ img{
 	-webkit-box-direction: normal;
 	    -ms-flex-direction: column;
 	        flex-direction: column;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 }
 .nav__item{
 	margin-bottom: var(--mb-3);
@@ -268,14 +272,14 @@ img{
 .active-link{
 	position: relative;
 }
-.active-link:before{
+.active-link::before{
 	content: '';
 	position: absolute;
 	bottom: -.3rem;
 	left: 0;
 	width: 50%;
 	height: 2px;
-	background-color: var(--title-color);
+	background-color: var(--brown-color) !important;
 }
 
 /* Change Color Header*/
@@ -288,8 +292,8 @@ img{
 .scroll-header .nav__toggle{
 	color: var(--title-color) !important;
 }
-.scroll-header .active-link:before{
-	background-color: var(--title-color) !important;
+.scroll-header .active-link::before{
+	background-color: var(--brown-color) !important;
 }
 /* ===== end nav ===== */
 
@@ -707,9 +711,6 @@ img{
 	-webkit-box-align: center;
 	    -ms-flex-align: center;
 	        align-items: center;
-	-webkit-column-gap: 1rem;
-	   -moz-column-gap: 1rem;
-	        column-gap: 1rem;
 	margin-bottom: 7rem;
 }
 .testimonial__profile-img{
@@ -720,6 +721,7 @@ img{
 	   object-fit: cover;
 	-o-object-position: center;
 	   object-position: center;
+	margin-right: var(--mb-2);
 }
 .testimonial__profile-data{
 	display: -webkit-box;

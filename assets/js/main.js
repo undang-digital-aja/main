@@ -169,11 +169,6 @@ let testimonialSwiper = new Swiper(".testimonial-swiper", {
 	spaceBetween: 30,
 	loop: 'true',
 
-	autoplay: {
-		delay: 4500,
-		disableOnInteraction: false,
-	},
-
 	navigation: {
 		nextEl: ".swiper-button-next",
 		prevEl: ".swiper-button-prev",
