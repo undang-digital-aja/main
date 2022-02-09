@@ -7,9 +7,6 @@
 	<!-- ===== FAVICON ==== -->
 	<link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
 
-	<!-- ===== MAIN CSS ===== -->
-	<link rel="stylesheet" href="assets/css/style.css">
-
 	<!-- ===== BOX ICONS ===== -->
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 
@@ -18,6 +15,1365 @@
 
 	<!-- ===== AOS ANIMATE CSS ===== -->
 	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+
+	<!-- ===== MAIN CSS ===== -->
+	<style>
+		/* ===== GOOGLE FONT ===== */
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Yeseva+One&display=swap');
+
+		/* ===== FONT FACE ===== */
+		@font-face{
+			font-family: 'modernline_-_personal_useRg';
+		    	src: url('assets/fonts/modernline-webfont.woff2') format('woff2'),
+		         url('assets/fonts/modernline-webfont.woff') format('woff');
+		   font-weight: normal;
+		   font-style: normal;
+		}
+
+		@font-face {
+		   font-family: 'authenticsignature';
+		   src: url('assets/fonts/authentic_signature-webfont.woff2') format('woff2'),
+		        url('assets/fonts/authentic_signature-webfont.woff') format('woff');
+		   font-weight: normal;
+		   font-style: normal;
+		}
+		/* ===== end font face ===== */
+
+		/* ===== VARIABLES CSS ===== */
+		:root{
+			--header-height: 3.5rem;
+
+			/* ===== Colors ===== */
+			--body-color: #FEFBF3;
+			--title-color: #141414;
+			--text-color: #595260;
+			--beige-color: #F3D5C0;
+			--brown-color: #E5B299;
+			--white-color: #FFF;
+
+			/* ===== Font and Typography ===== */
+			--title-font: 'Yeseva One', cursive;
+			--text-font: 'Poppins', sans-serif;
+			--special-font: 'modernline_-_personal_useRg';
+			--footer-font: 'authenticsignature';
+			--big-font-size: 2rem;
+			--h1-font-size: 1.4rem;
+			--h2-font-size: 1.25rem;
+			--h3-font-size: 1rem;
+			--normal-font-size: .938rem;
+			--small-font-size: .813rem;
+			--smaller-font-size: .75rem;
+
+			/* ===== Font Weight ===== */
+			--regular-font: 400;
+			--medium-font: 500;
+			--semi-bold-font: 600;
+			--bold-font: 700;
+
+			/* ===== z-index ===== */
+			--z-tooltip: 10;
+			--z-fixed: 100;
+		}
+		/* ===== end variables css ===== */
+
+		/* Responsive Typography */
+		@media screen and (min-width: 768px){
+			:root{
+				--big-font-size: 3rem;
+				--h1-font-size: 2.25rem;
+				--h2-font-size: 1.5rem;
+				--h3-font-size: 1.25rem;
+				--normal-font-size: 1rem;
+				--small-font-size: .875rem;
+				--smaller-font-size: .813rem;
+			}
+		}
+		/* end responsive typography ===== */
+
+		/* ===== BASE ===== */
+		*{
+			box-sizing: border-box;
+			padding: 0;
+			margin: 0;
+		}
+		html{
+			scroll-behavior: smooth;
+		}
+		body{
+			font-family: var(--text-font);
+			font-size: var(--normal-font-size);
+			background-color: var(--body-color);
+			color: var(--text-color);
+		}
+		h1,h2,h3{
+			color: var(--title-color);
+			font-weight: var(--font-semi-bold);
+		}
+		ul{
+			list-style: none;
+		}
+		a{
+			text-decoration: none;
+		}
+		img{
+			max-width: 100%;
+			height: auto;
+		}
+		.main{
+			overflow: hidden !important;
+		}
+		/* ===== end base ===== */
+
+		/* ===== REUSABLE CSS CLASSES ===== */
+		.section{
+			padding: 6rem 0 3rem;
+		}
+		.section-title{
+			position: relative;
+			font-family: var(--title-font);
+			font-size: var(--h1-font-size);
+			text-align: center;
+			margin-bottom: 2rem;
+			max-width: -webkit-max-content;
+			max-width: -moz-max-content;
+			max-width: max-content;
+			width: 100%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.section-title::before{
+			content: '';
+			position: absolute;
+			top: 85%;
+			left: 50%;
+			-webkit-transform: translate(-50%,-85%);
+			        transform: translate(-50%,-85%);
+			height: 8px;
+			width: 105%;
+			background-color: var(--brown-color);
+			z-index: -1;
+			opacity: .5;
+			-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+		}
+		/* ===== end reusable css classes ===== */
+
+		/* ===== LAYOUT ===== */
+		.container{
+			max-width: 1024px;
+			width: calc(100% - 2rem);
+			margin-left: 1rem;
+			margin-right: 1rem;
+		}
+		.grid{
+			display: -ms-grid;
+			display: grid;
+		}
+		.header{
+			width: 100%;
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: var(--z-fixed);
+			-webkit-transition: .3s;
+			transition: .3s;
+		}
+		/* ===== layout ===== */
+
+		/* ===== BUTTONS ===== */
+		.button{
+			display: inline-block;
+			background-color: var(--beige-color);
+			padding: 1rem 1.75rem;
+			border-radius: .5rem;
+			font-weight: var(--medium-font);
+			-webkit-transition: .3s;
+			transition: .3s;
+			color: var(--title-color);
+		}
+		.button:hover{
+			background-color: var(--brown-color);
+		}
+		.button__icon{
+			font-size: 1.2rem;
+			-webkit-transition: .3s;
+			transition: .3s;
+			margin-right: .5rem;
+		}
+		.button:hover .button__icon{
+			-webkit-transform: translateX(.25rem);
+			        transform: translateX(.25rem);
+		}
+		.button--flex{
+			display: -webkit-inline-box;
+			display: -ms-inline-flexbox;
+			display: inline-flex;
+			-webkit-box-align: center;
+			    -ms-flex-align: center;
+			        align-items: center;
+		}
+		.button__text{
+			display: block;
+			margin-right: .3rem;
+		}
+		/* ===== end button ===== */
+
+		/* ===== NAV ===== */
+		.nav{
+			height: var(--header-height);
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: justify;
+			    -ms-flex-pack: justify;
+			        justify-content: space-between;
+			-webkit-box-align: center;
+			    -ms-flex-align: center;
+			        align-items: center;
+		}
+		.nav__logo{
+			color: #FFF !important;
+		}
+		@media screen and (max-width: 767px){
+			.nav__menu{
+				position: fixed;
+				background-color: #FFF;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				right: -100%;
+				padding: 6rem 2rem 3.5rem;
+				-webkit-transition: .3s;
+				transition: .3s;
+				z-index: var(--z-fixed);
+			}
+			.nav__link{
+				font-family: var(--title-font);
+				font-size: var(--h3-font-size);
+			}
+			.nav__img{
+				position: absolute;
+				top: 1rem;
+				left: .5rem;
+				width: 135px;
+			}
+		}
+		.nav__list{
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+			    -ms-flex-direction: column;
+			        flex-direction: column;
+			-webkit-box-align: center;
+			    -ms-flex-align: center;
+			        align-items: center;
+		}
+		.nav__item{
+			margin-bottom: 2rem;
+		}
+		.nav__item:last-child{
+			margin-bottom: 0;
+		}
+		.nav__link{
+			color: var(--title-color) !important;
+		}
+
+		/* Hamburger Nav */
+		.hamburger__nav{
+			cursor: pointer;
+			width: 24px;
+			height: 24px;
+			border-radius: .5rem;
+			position: relative;
+			background: none;
+			border: none;
+			-webkit-transition: all 0.25s;
+			transition: all 0.25s;
+			z-index: var(--z-fixed);
+			margin-left: 1rem;
+		}
+		.hamburger__top,
+		.hamburger__middle,
+		.hamburger__bottom{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 24px;
+			height: 2px;
+			background: var(--white-color);
+			-webkit-transform: rotate(0);
+					transform: rotate(0);
+			-webkit-transition: all 0.5s;
+			transition: all 0.5s;
+		}
+		.hamburger__middle{
+			-webkit-transform: translateY(7px);
+					transform: translateY(7px);
+		}
+		.hamburger__bottom{
+			-webkit-transform: translateY(14px);
+					transform: translateY(14px);
+		}
+		.close-menu .hamburger__top{
+			background-color: var(--title-color) !important;
+			-webkit-transform: rotate(45deg) translateY(6px) translateX(6px) !important;
+					transform: rotate(45deg) translateY(6px) translateX(6px) !important;
+		}
+		.close-menu .hamburger__middle{
+			display: none;
+		}
+		.close-menu .hamburger__bottom{
+			background-color: var(--title-color) !important; 
+			-webkit-transform: rotate(-45deg) translateY(6px) translateX(-6px) !important;
+					transform: rotate(-45deg) translateY(6px) translateX(-6px) !important;
+		}
+
+		/* Show menu */
+		.show-menu{
+			right: 0 !important;
+		}
+
+		/* Active Link */
+		.active-link{
+			position: relative;
+		}
+		.active-link::before{
+			content: '';
+			position: absolute;
+			bottom: -.3rem;
+			left: 0;
+			width: 50%;
+			height: 2px;
+			background-color: var(--brown-color) !important;
+		}
+
+		/* Change Color Header*/
+		.scroll-header{
+			background-color: #FFF;
+			box-shadow: 0 2px 4px rgba(0,0,0,.1);
+		}
+		.scroll-header .nav__link,
+		.scroll-header .nav__logo{
+			color: var(--title-color) !important;
+		}
+		.scroll-header .active-link::before{
+			background-color: var(--brown-color) !important;
+		}
+		.scroll-header .hamburger__top,
+		.scroll-header .hamburger__middle,
+		.scroll-header .hamburger__bottom{
+			background-color: var(--title-color);
+		}
+		/* ===== end nav ===== */
+
+		/* ===== HOME ===== */
+		.home{
+			position: relative;
+			width: 100%;
+			height: 100vh;
+		}
+		.home__container-slides,
+		.home__slides{
+			width: inherit;
+			height: inherit;
+		}
+		.home__slide{
+			width: 100%;
+			height: 100vh;
+			position: relative;
+			overflow: hidden;
+		}
+		.home__slide::after{
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0,0,0,.5);
+		}
+		.home__img{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			-o-object-fit: cover;
+			   object-fit: cover;
+			-o-object-position: center;
+			   object-position: center;
+			-webkit-animation: zoom 31s infinite;
+			        animation: zoom 31s infinite;
+		}
+		@-webkit-keyframes zoom{
+			100%{
+				-webkit-transform: scale(1.3);
+						transform: scale(1.3);
+			}
+		}
+		@keyframes zoom{
+			100%{
+				-webkit-transform: scale(1.3);
+						transform: scale(1.3);
+			}
+		}
+		.home__data{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 10;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: center;
+			    -ms-flex-pack: center;
+			        justify-content: center;
+			-ms-flex-line-pack: center;
+			    align-content: center;
+		}
+		.home__content{
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: center;
+			    -ms-flex-pack: center;
+			        justify-content: center;
+			-ms-flex-line-pack: center;
+			    align-content: center;
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+			    -ms-flex-direction: column;
+			        flex-direction: column;
+			text-align: center;
+		}
+		.home__subtitle{
+			font-size: var(--h2-font-size);
+			font-weight: var(--regular-font);
+			margin-bottom: 2rem;
+			color: #FFF;
+		}
+		.home__title{
+			font-size: var(--big-font-size);
+			line-height: 1.3;
+			margin-bottom: .5rem;
+			color: #FFF;
+			font-weight: var(--semi-bold-font);
+		}
+		.home__description{
+			display: block;
+			margin-bottom: 2rem;
+			color: #FFF;
+		}
+		.home__button{
+			max-width: -webkit-max-content;
+			max-width: -moz-max-content;
+			max-width: max-content;
+			width: 100%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		/* ===== end home ===== */
+
+		/* ===== ABOUT ===== */
+		.about__title{
+			font-family: var(--title-font);
+			font-size: var(--h1-font-size);
+			margin-bottom: 1rem;
+		}
+		.about__title span{
+			display: inline-block;
+			position: relative;
+		}
+		.about__title span::before{
+			content: '';
+			position: absolute;
+			top: 85%;
+			left: 50%;
+			-webkit-transform: translate(-50%,-85%);
+			        transform: translate(-50%,-85%);
+			height: 8px;
+			width: 100%;
+			background-color: var(--brown-color);
+			z-index: -1;
+			opacity: .5;
+			-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+		}
+		.about__container{
+			row-gap: 2rem;
+		}
+		.about__img{
+			max-width: 300px;
+			width: 100%;
+			justify-self: center;
+		}
+		.about__description{
+		  margin-bottom: 2rem;
+		}
+		.about__details{
+			display: -ms-grid;
+			display: grid;
+			row-gap: 1rem;
+			margin-bottom: 2.5rem;
+		}
+		.about__details-description{
+			display: -webkit-inline-box;
+			display: -ms-inline-flexbox;
+			display: inline-flex;
+			-webkit-box-align: center;
+			    -ms-flex-align: center;
+			        align-items: center;
+		}
+		.about__details-icon{
+			font-size: 1.3rem;
+			margin-top: .15rem;
+			color: var(--title-color);
+			margin-right: .5rem;
+		}
+		/* ===== end about ===== */
+
+		/* ===== FITUR ===== */
+		.fitur__content{
+			background-color: var(--beige-color);
+			border-radius: 1rem;
+			padding: 1.5rem 1rem;
+			text-align: center;
+		}
+		.fitur__img{
+			width: 90px;
+			margin-bottom: .5rem;
+		}
+		.fitur__title{
+			font-weight: var(--semi-bold-font);
+		}
+
+		/* Swiper Class */
+		.fitur__container{
+			position: relative !important;
+		}
+		.fitur .swiper-button-prev::after,
+		.fitur .swiper-button-next::after{
+			content: '' !important;
+		}
+		.fitur .swiper-button-next{
+			right: .3rem !important;
+		}
+		.fitur .swiper-button-prev{
+			left: .3rem !important;
+		}
+		.fitur .swiper-button-next,
+		.fitur .swiper-button-prev{
+			top: 50% !important;
+			width: 35px !important;
+			height: 35px !important;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: center;
+			    -ms-flex-pack: center;
+			        justify-content: center;
+			-webkit-box-align: center;
+			    -ms-flex-align: center;
+			        align-items: center;
+			background-color: var(--white-color) !important;
+			box-shadow: 0 4px 12px hsla(0, 0%, 20%, .1) !important;
+			padding: 0.25rem !important;
+			font-size: 1.5rem !important;
+			color: var(--title-color) !important;
+			border-radius: 50%;
+		}
+		/* ===== end fitur ===== */
+
+		/* ===== PAKET ===== */
+		.ribbon__box-img{
+			text-align: center;
+			position: relative;
+			margin-bottom: .5rem;
+		}
+		.ribbon__img{
+			max-width: 400px;
+			width: 100%;
+		}
+		.ribbon__title{
+			position: absolute;
+			top: 38%;
+			left: 50%;
+			-webkit-transform: translate(-50%,-50%);
+			        transform: translate(-50%,-50%);
+			font-size: var(--h1-font-size);
+			font-family: var(--special-font);
+			font-weight: var(--bold-font);
+			color: var(--title-color);
+		}
+		.paket{
+			background: url(assets/img/paket_bg.jpg) no-repeat center/cover;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: center;
+			    -ms-flex-pack: center;
+			        justify-content: center;
+		}
+		.paket .container{
+			max-width: 1024px;
+			width: calc(100% - 2rem);
+			margin-left: 1rem;
+			margin-right: 1rem;
+		}
+		.paket .section-title{
+			color: #FFF !important;
+			z-index: 50 !important;
+		}
+		.paket .section-title::before{
+			z-index: -1;
+		}
+		.paket__cards{
+			height: auto !important;
+		}
+		.paket__card-content{
+			padding: 2rem 1.5rem;
+			background: -webkit-linear-gradient(320deg,
+							rgba(255,255,255,.6),
+							rgba(255,255,255,.2));
+			background: linear-gradient(130deg,
+							rgba(255,255,255,.6),
+							rgba(255,255,255,.2));
+			box-shadow: inset 2px 2px 1px rgba(255,255,255,.3)
+							inset -2px -2px 1px rgba(255,255,255,.2);
+			border-radius: 1.5rem;
+			-webkit-backdrop-filter: blur(10px) !important;
+			        backdrop-filter: blur(10px) !important;
+		}
+		.paket__price{
+			padding: .5rem .75rem;
+			border-radius: .25rem;
+			font-size: var(--h3-font-size);
+			font-weight: var(--semi-bold-font);
+			text-align: center;
+			background-color: var(--body-color);
+			color: var(--title-color) !important;
+			margin-top: 2rem;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: center;
+			    -ms-flex-pack: center;
+			        justify-content: center;
+			-webkit-box-align: center;
+			    -ms-flex-align: center;
+			        align-items: center;
+		}
+		.paket__icon{
+			font-size: 1.2rem;
+		}
+		.paket__icon,
+		.price__icon{
+			margin-right: .5rem;
+		}
+		.paket__list{
+			height: 400px;
+		}
+		.paket__item{
+			display: -webkit-inline-box;
+			display: -ms-inline-flexbox;
+			display: inline-flex;
+			-webkit-box-align: center;
+			    -ms-flex-align: center;
+			        align-items: center;
+			color: var(--title-color) !important;
+		}
+
+		/* Swiper Class */
+		.paket .swiper-pagination{
+			position: initial !important;
+			margin: 1.5rem 0;
+		}
+		.paket .swiper-pagination-bullet{
+			width: 5px !important;
+			height: 5px !important;
+			background-color: #FFF !important;
+			opacity: 1 !important;
+			-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+		}
+		.paket .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet{
+			margin: 0 .5rem !important;
+		}
+		.paket .swiper-pagination-bullet-active{
+			width: 1.5rem !important;
+			height: 5px !important;
+			border-radius: .5rem !important;
+		}
+		/* ===== end paket ===== */
+
+		/* ===== KATALOG ===== */
+		.katalog__nav{
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: center;
+			    -ms-flex-pack: center;
+			        justify-content: center;
+			-webkit-box-align: center;
+			    -ms-flex-align: center;
+			        align-items: center;
+			-webkit-column-gap: .75rem;
+			   -moz-column-gap: .75rem;
+			        column-gap: .75rem;
+			margin-bottom: 2rem;
+		}
+		.katalog__item{
+			cursor: pointer;
+			padding: 0.25rem 0.75rem;
+			font-weight: var(--font-medium);
+			border-radius: .5rem;
+		}
+		.katalog__container{
+			grid-gap: 1.5rem 1rem;
+		}
+		.katalog__content{
+			background-color: #FFF;
+			border-radius: .5rem;
+			overflow: hidden;
+			box-shadow: 0 4px 6px rgba(174,190,205,0.3);
+			padding-bottom: 1rem;		  
+		}
+		.katalog__content:hover{
+			box-shadow: 0 6px 8px rgba(174,190,205,0.4);
+		}
+		.katalog__data{
+			padding: 1.5rem;
+			text-align: center;
+		}
+		.katalog__title{
+			font-weight: var(--medium-font);
+			margin-bottom: .25rem;
+		}
+		.katalog__price{
+			display: block;
+			text-align: center;
+			margin-bottom: 1rem;
+		}
+		.katalog__button{
+			width: 100%;
+			-webkit-box-pack: center;
+			    -ms-flex-pack: center;
+			        justify-content: center;
+			padding: .75rem 1.75rem;
+		}
+		.katalog__button:first-child{
+			margin-bottom: 1rem;
+		}
+		.katalog__button .button__icon{
+			font-size: 1.5rem;
+		}
+
+		/* Active menu portfolio*/
+		.active-katalog{
+			background-color: var(--beige-color);
+			font-weight: var(--semi-bold-font);
+			color: var(--title-color);
+		}
+		/* ===== end katalog ===== */
+
+		/* ===== TESTIMONIAL ===== */
+		.testimonial__container{
+			grid-row-gap: 2rem;
+		}
+		.testimonial__quote{
+			display: -webkit-inline-box;
+			display: -ms-inline-flexbox;
+			display: inline-flex;
+			background-color: var(--beige-color);
+			padding: 0.5rem 0.75rem;
+			font-size: 1.5rem;
+			color: var(--first-color);
+			box-shadow: 0 4px 12px hsla(0, 0%, 20%, .1);
+			margin-bottom: 2rem;
+		}
+		.testimonial__description{
+			margin-bottom: 1rem;
+		}
+		.testimonial__line{
+			height: 1px;
+			width: 67px;
+			background-color: var(--brown-color);
+			margin-bottom: 2rem;
+		}
+		.testimonial__profile{
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-align: center;
+			    -ms-flex-align: center;
+			        align-items: center;
+			margin-bottom: 7rem;
+		}
+		.testimonial__profile-img{
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			-o-object-fit: cover;
+			   object-fit: cover;
+			-o-object-position: center;
+			   object-position: center;
+			margin-right: 1rem;
+		}
+		.testimonial__profile-data{
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+			    -ms-flex-direction: column;
+			        flex-direction: column;
+		}
+		.testimonial__profile-name{
+			font-size: var(--h3-font-size);
+			font-weight: var(--font-medium);
+			color: var(--title-color);
+		}
+		.testimonial__profile-detail{
+			font-size: var(--smaller-font-size);
+		}
+		.testimonial__images{
+			position: relative;
+			margin-bottom: 3rem;
+		}
+		.testimonial__img,
+		.testimonial__square{
+			width: 250px;
+		}
+		.testimonial__square{
+			height: 250px;
+			background-color: var(--beige-color);
+			margin-left: auto;
+		}
+		.testimonial__img{
+			position: absolute;
+			right: 2rem;
+			top: 3rem;
+		}
+
+		/* Swiper class */
+		.testimonial__swiper{
+			margin-left: initial !important;
+			margin-right: initial !important; 
+		}
+		.testimonial .swiper-button-prev::after,
+		.testimonial .swiper-button-next::after{
+			content: '' !important;
+		}
+		.testimonial .swiper-button-next,
+		.testimonial .swiper-button-prev{
+			top: initial !important;
+			bottom: 5% !important;
+			width: initial !important;
+			height: initial !important;
+			background-color: var(--beige-color) !important;
+			box-shadow: 0 4px 12px hsla(0, 0%, 20%, .1) !important;
+			padding: 0.25rem !important;
+			font-size: 1.5rem !important;
+			color: var(--first-color) !important;
+		}
+		.testimonial .swiper-button-next{
+			right: initial !important;
+			left: 4rem !important;
+		}
+		/* ===== end testimonial ===== */
+
+		/* ===== FAQS ===== */
+		.questions{
+			background: rgba(0,0,0,.3) url(assets/img/paket_bg.jpg) no-repeat center/cover;
+			background-blend-mode: overlay;
+			padding-bottom: 3.5rem;
+		}
+		.questions .section-title{
+			z-index: 50 !important;
+			color: #FFF;
+		}
+		.questions .section-title::before{
+			z-index: -1;
+		}
+		.questions__container{
+			row-gap: 1.5rem;
+		}
+		.questions__item{
+			background-color: var(--beige-color);
+			border-radius: .25rem;
+		}
+		.questions__item-title{
+			font-size: var(--normal-font-size);
+			font-weight: var(--semi-bold-font);
+		}
+		.questions__icon{
+			font-size: 1.5rem;
+			color: var(--title-color) !important;
+		}
+		.questions__description{
+			padding: 0 1.25rem 1.25rem 2.5rem !important;
+		}
+		.questions__header{
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-align: center;
+			    -ms-flex-align: center;
+			        align-items: center;
+			-webkit-column-gap: .5rem;
+			   -moz-column-gap: .5rem;
+			        column-gap: .5rem;
+			padding: .75rem .5rem;
+			cursor: pointer;
+		}
+		.questions__item,
+		.questions__header,
+		.questions__item-title,
+		.questions__icon,
+		.questions__description,
+		.questions__content{
+			-webkit-transition: .3s;
+			transition: .3s;
+		}
+		.questions__content{
+			overflow: hidden;
+			height: 0;
+		}
+		.questions__item:hover{
+			box-shadow: 0 2px 8px rgba(0,0,0,.3);
+		}
+
+		/* Rotate icon, change color of titles and background */
+		.accordion-open .questions__header,
+		.accordion-open .questions__content{
+			background-color: var(--brown-color);
+		}
+
+		.accordion-open .questions__item-title,
+		.accordion-open .questions__description,
+		.accordion-open .questions__icon{
+			color: #FFF !important;
+		}
+		.accordion-open .questions__icon{
+			-webkit-transform: rotate(90deg);
+			        transform: rotate(90deg);
+		}
+		/* ===== end faqs ===== */
+
+		/* ==== ORDER ===== */
+		.order__container{
+			grid-row-gap: 2.5rem;
+		}
+		.mobile__order-title{
+			margin-bottom: 5rem;
+		}
+		.order__images{
+			position: relative;
+		}
+		.order__img,
+		.order__square{
+			width: 250px;
+		}
+		.order__square{
+			height: 250px;
+			background-color: var(--beige-color);
+		}
+		.order__img{
+			position: absolute;
+			left: 3rem;
+			top: -3rem;
+		}
+		.dekstop__order-title{
+			display: none;
+		}
+		.order__content span{
+			display: block;
+			margin-left: .5rem;
+		}
+		.order__line{
+			width: 100%;
+			height: 2px;
+			background-color: var(--brown-color);
+			border-radius: .5rem;
+			margin: .8rem 0;
+		}
+		/* ===== end order ===== */
+
+		/* ===== BANNER ====== */
+		.banner__title{
+			margin-bottom: 2rem;
+		}
+		.banner__container{
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: center;
+			    -ms-flex-pack: center;
+			        justify-content: center;
+			-webkit-box-align: center;
+			    -ms-flex-align: center;
+			        align-items: center;
+			-ms-flex-wrap: wrap;
+			    flex-wrap: wrap;
+		}
+		.banner__img{
+			width: 60px;
+			-webkit-transition: .3s;
+			transition: .3s;
+		}
+		.banner__box{
+			margin-right: .5rem;
+		}
+		.banner__box:last-child{
+			margin-right: 0;
+		}
+		.banner__box:hover .banner__img{
+			-webkit-transform: translateY(-.5rem);
+			        transform: translateY(-.5rem);
+		}
+		/* ===== end banner ===== */
+
+		/* ===== FOOTER ===== */
+		.footer{
+			padding-top: 7rem;
+		}
+		.footer__container{
+			text-align: center;
+		}
+		.footer__title{
+			font-family: var(--footer-font);
+			font-size: 3rem;
+			font-weight: var(--semi-bold-font);
+			margin-bottom: .5rem;
+			word-spacing: 20px;
+		}
+		.footer__copy{
+			text-align: center;
+			font-size: var(--smaller-font-size);
+			margin: 3.5rem 0 1rem 0;
+			padding: 2.5rem 0 1rem;
+			border-top: 1px solid var(--beige-color);
+		}
+		/* ===== end footer ===== */
+
+		/* ===== SCROLL UP ===== */
+		.scrollup{
+			position: fixed;
+			background-color: var(--brown-color);
+			right: 1rem;
+			bottom: -30%;
+			display: -webkit-inline-box;
+			display: -ms-inline-flexbox;
+			display: inline-flex;
+			padding: .5rem;
+			border-radius: .25rem;
+			z-index: var(--z-tooltip);
+			opacity: .8;
+			-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+			-webkit-transition: .4s;
+			transition: .4s;
+		}
+		.scrollup__icon{
+			font-size: 1.2rem;
+			color: #FFF !important;
+		}
+		.scrollup:hover{
+			background-color: var(--brown-color);
+			opacity: 1;
+			-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+		}
+
+		/* Show Scroll Up*/
+		.show-scroll{
+			bottom: 3rem;
+		}
+		/* ===== end scroll up ===== */
+
+		/* ===== SCROLL BAR ===== */
+		::-webkit-scrollbar{
+			width: .6rem;
+			background: #E8E8E8;
+		}
+		::-webkit-scrollbar-thumb{
+			background: #686D76;
+			border-radius: .5rem;
+		}
+		/* ===== end scroll bar ===== */
+
+		/* ===== MEDIA QUERIS ===== */
+		/* For small devices */
+		@media screen and (max-width: 320px){
+			/* ===== PAKET ===== */
+			.ribbon__box-img{
+				margin-bottom: 1rem;
+			}
+			/* ===== end paket ===== */
+
+			/* ===== ORDER + TESTIMONIAL ===== */
+			.order__square,
+			.order__img,
+			.testimonial__square,
+			.testimonial__img{
+				width: 180px;
+			}
+			.order__square,
+			.testimonial__square{
+				height: 180px;
+			}
+			/* ===== end order + testimonial ===== */
+		}
+
+		/* For medium devices */
+		@media screen and (min-width: 576px){
+			/* ===== PAKET ===== */
+			.ribbon__box-img{
+				margin-bottom: .5rem;
+			}
+			/* ===== end paket ===== */
+
+			/* ===== KATALOG ===== */
+			.katalog__container{
+				-ms-grid-columns: (1fr)[2];
+					grid-template-columns: repeat(2,1fr);
+			}
+			/* ===== end katalog ===== */
+
+			/* ===== BANNER ===== */
+			.banner__box{
+				margin-right: 2rem;
+			}
+			.banner__img{
+				width: 75px;
+			}
+			/* ===== end banner ===== */
+
+			/* ===== FOOTER ===== */
+			.footer__title{
+				font-size: 3.5rem;
+			}
+			/* ===== end footer ===== */
+		}
+
+		@media screen and (max-width: 768px){
+			/* ===== ORDER ===== */
+			.order__list{
+				padding: 0 1rem;
+			}
+			/* ===== end order =====*/
+		}
+
+		@media screen and (min-width: 768px){
+			/* ===== REUSABLE CSS CLASSES ===== */
+			.section{
+				padding: 7rem 0 3.5rem;
+			}
+			/* ===== end reusable css classes ===== */
+
+			/* ===== NAV ====*/
+			.hamburger__nav,
+			.nav__img{
+				display: none;
+			}
+			.nav{
+				height: calc(var(--header-height) + 1.5rem);
+			}
+			.nav__list{
+				-webkit-box-orient: horizontal;
+				-webkit-box-direction: normal;
+				    -ms-flex-direction: row;
+				        flex-direction: row;
+				-webkit-column-gap: 2rem;
+				   -moz-column-gap: 2rem;
+				        column-gap: 2rem;
+			}
+			.nav__item{
+				margin-bottom: 0;
+			}
+			.nav__link{
+				color: #FFF !important;
+			}
+
+			/* Active Link */
+			.active-link:before{
+				background-color: #FFF !important;
+			}
+			/* ===== end nav ===== */
+
+			/* ===== HOME ===== */
+			.home__content{
+				text-align: initial;
+			}
+			.home__description{
+				width: 70%;;
+			}
+			.home__button{
+				margin-left: initial;
+				margin-right: initial;
+			}
+			/* ===== end home ===== */
+
+			/* ===== ABOUT ===== */
+			.about__container{
+				-ms-grid-columns: (1fr)[2];
+				    grid-template-columns: repeat(2, 1fr);
+				-webkit-box-align: center;
+				    -ms-flex-align: center;
+				            -ms-grid-row-align: center;
+				        align-items: center;
+			}
+			/* ===== end about ===== */
+
+			/* ===== FITUR ===== */
+			.fitur{
+				margin-bottom: 3rem;
+			}
+			.fitur__img{
+				width: 100px;
+			}
+			/* ===== end fitur ===== */
+
+			/* ===== ORDER + TESTIMONIAL ===== */
+			.dekstop__order-title{
+				display: block;
+			}
+			.mobile__order-title{
+				display: none;
+			}
+			.order__container,
+			.testimonial__container{
+				-ms-grid-columns: (1fr)[2];
+				    grid-template-columns: repeat(2,1fr);
+				-webkit-box-align: center;
+				    -ms-flex-align: center;
+				            -ms-grid-row-align: center;
+				        align-items: center;
+			}
+			/* ===== end order + testimonial ===== */
+
+			/* ===== ORDER ===== */
+			.dekstop__order-title{
+				text-align: initial;
+			}
+			.dekstop__order-title::before{
+				margin: initial;
+			}
+			.order__images{
+				-webkit-box-ordinal-group: 0;
+				    -ms-flex-order: -1;
+				        order: -1;
+			}
+			/* ===== end order ===== */
+
+			/* ===== FAQ ===== */
+			.questions__item-title{
+				font-size: var(--h3-font-size);
+			}
+			/* ===== end faq ===== */
+
+			/* ===== FOOTER ===== */
+			.footer__title{
+				font-size: 4rem;
+			}
+			/* ===== end footer ===== */
+		}
+
+		/* For large devices */
+		@media screen and (min-width: 992px){
+			/* ===== LAYOUT ===== */
+			.container{
+				margin-left: auto;
+				margin-right: auto;
+			}
+			/* ===== end layout ===== */
+
+			/* ===== ABOUT ===== */
+			.about__img{
+				max-width: 400px;
+			}
+			/* ===== end about ===== */
+
+			/* ===== KATALOG ===== */
+			.katalog__container{
+				grid-gap: 3rem;
+			}
+			/* ===== end katalog ===== */
+
+			/* ===== ORDER + TESTIMONIAL ===== */
+			.order__container,
+			.testimonial__container{
+				-webkit-column-gap: 8rem !important;
+				   -moz-column-gap: 8rem !important;
+				        column-gap: 8rem !important;
+			}
+			.order__square,
+			.order__img,
+			.testimonial__square,
+			.testimonial__img{
+				width: 450px;
+			}
+			.order__square,
+			.testimonial__square{
+				height: 450px;
+			}
+			/* ===== end order + testimonial ===== */
+
+			/* ===== TESTIMONIAL ===== */
+			.testimonial__container{
+				padding-bottom: 4rem;
+			}
+			/* ===== end testimonial ===== */
+
+			/* ===== FAQs ===== */
+			.questions{
+				padding-bottom: 4rem;
+			}
+			.questions__container{
+				width: 800px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			/* ===== end faqs ===== */
+		}
+
+		@media screen and (min-width: 1200px){
+			/* ===== ABOUT ===== */
+			.about__container{
+				-webkit-column-gap: 7rem;
+				   -moz-column-gap: 7rem;
+				        column-gap: 7rem;
+			}
+			/* ===== end about ===== */
+
+			/* ===== TESTIMONIAL ===== */
+			.testimonial__container{
+				-webkit-column-gap: 13rem !important;
+				   -moz-column-gap: 13rem !important;
+				        column-gap: 13rem !important;
+			}
+			.testimonial__img{
+				right: 5rem;
+				top: 5rem;
+			}
+			/* ===== end testimonial ===== */
+
+			/* ===== ORDER ===== */
+			.order__container{
+				padding-top: 3rem;
+				-webkit-column-gap: 10rem !important;
+				   -moz-column-gap: 10rem !important;
+				        column-gap: 10rem !important;
+			}
+			.order__img{
+				left: 5rem;
+				top: -5rem;
+			}
+			/* ===== end order ===== */
+		}
+		/* ===== end media queris ===== */
+	</style>
+	<!-- ===== end main css ===== -->
 
 	<title>Undang Digital Aja</title>
 </head>
@@ -52,13 +1408,13 @@
 					</li>
 				</ul>
 
-				<div class="nav__close" id="nav-close">
-					<i class='bx bx-x'></i>
-				</div>
+				<img src="assets/img/wedding_ring.png" alt="" class="nav__img">
 			</div>
 
-			<div class="nav__toggle" id="nav-toggle">
-				<i class='bx bx-menu'></i>
+			<div class="hamburger__nav" id="menu-button">
+				<span class="hamburger__top"></span>
+				<span class="hamburger__middle"></span>
+				<span class="hamburger__bottom"></span>
 			</div>
 		</nav>
 	</header>
@@ -68,7 +1424,7 @@
 	<main class="main">
 		<!-- ===== HOME ===== -->
 		<section class="home" id="home">
-			<!-- Home slides - Swiper (Effect fade) -->
+			<!-- Home slides -->
 			<div class="home__container-slides">
 				<div class="swiper home__slides">
 					<div class="swiper-wrapper">
@@ -111,7 +1467,7 @@
 					</div>
 				</div>
 			</div>
-			<!-- end home slides - Swiper (Effect fade) -->
+			<!-- end home slides -->
 
 			<div class="home__data">
 				<div class="home__content container" data-aos="fade-down">
@@ -134,7 +1490,7 @@
 				<img src="assets/img/banner.png" alt="" class="about__img" data-aos="fade-right">
 
 				<div class="about__data" data-aos="fade-left">
-					<h2 class="about__title">Mengapa <span>Undang Digital Aja</span>?</h2>
+					<h2 class="about__title">Mengapa <span>Undang Digital Aja?</span></h2>
 
 					<p class="about__description">Kami adalah penyedia layanan pembuatan undangan digital berbasis website. Kami memberikan sebuah layanan mudah, hemat dan praktis kepada calon pengantin dalam mengirimkan informasi/undangan pernikahan berupa link.</p>
 
@@ -172,205 +1528,132 @@
 
 		<!-- ===== FITUR ====== -->
 		<section class="fitur section container" id="fitur">
-			<div class="fitur__bg">
-				<h2 class="section-title">Fitur Undangan</h2>
+			<h2 class="section-title">Fitur Undangan</h2>
 
-				<div class="fitur__container" data-aos="fade-down">
-					<div class="fitur__slides swiper"> 
-						<div class="swiper-wrapper"> 
-							<!-- 1 -->
-							<div class="fitur__slide swiper-slide"> 
-								<div class="fitur__content">
-									<div class="fitur__img-box">
-										<div class="fitur__shape"></div>
-										<img src="assets/img/fitur_responsive.png" alt="" class="fitur__img">
-									</div>
-									<h3 class="fitur__title">Responsive</h3>
-								</div>
-							</div>
-							<!-- 2 -->
-							<div class="fitur__slide swiper-slide">
-								<div class="fitur__content">
-									<div class="fitur__img-box">
-										<div class="fitur__shape"></div>
-										<img src="assets/img/fitur_design.png" alt="" class="fitur__img">
-									</div>
-									<h3 class="fitur__title">Desain Keren</h3>
-								</div>
-							</div>
-							<!-- 3 -->
-							<div class="fitur__slide swiper-slide">
-								<div class="fitur__content">
-									<div class="fitur__img-box">
-										<div class="fitur__shape"></div>
-										<img src="assets/img/fitur_couple.png" alt="" class="fitur__img">
-									</div>
-									<h3 class="fitur__title">Info Mempelai</h3>
-								</div>
-							</div>
-							<!-- 4 -->
-							<div class="fitur__slide swiper-slide">
-								<div class="fitur__content">
-									<div class="fitur__img-box">
-										<div class="fitur__shape"></div>
-										<img src="assets/img/fitur_event.png" alt="" class="fitur__img">
-									</div>
-									<h3 class="fitur__title">Detail Acara</h3>
-								</div>
-							</div>
-							<!-- 5 -->
-							<div class="fitur__slide swiper-slide">
-								<div class="fitur__content">
-									<div class="fitur__img-box">
-										<div class="fitur__shape"></div>
-										<img src="assets/img/fitur_timer.png" alt="" class="fitur__img">
-									</div>
-									<h3 class="fitur__title">Countdown Timer</h3>
-								</div>
-							</div>
-							<!-- 6 -->
-							<div class="fitur__slide swiper-slide">
-								<div class="fitur__content">
-									<div class="fitur__img-box">
-										<div class="fitur__shape"></div>
-										<img src="assets/img/fitur_map.png" alt="" class="fitur__img">
-									</div>
-									<h3 class="fitur__title">Google Maps</h3>
-								</div>
-							</div>
-							<!-- 7 -->
-							<div class="fitur__slide swiper-slide">
-								<div class="fitur__content">
-									<div class="fitur__img-box">
-										<div class="fitur__shape"></div>
-										<img src="assets/img/fitur_wish.png" alt="" class="fitur__img">
-									</div>
-									<h3 class="fitur__title">Quotes</h3>
-								</div>
-							</div>
-							<!-- 8 -->
-							<div class="fitur__slide swiper-slide">
-								<div class="fitur__content">
-									<div class="fitur__img-box">
-										<div class="fitur__shape"></div>
-										<img src="assets/img/fitur_gallery.png" alt="" class="fitur__img">
-									</div>
-									<h3 class="fitur__title">Galeri</h3>
-								</div>
-							</div>
-							<!-- 9 -->
-							<div class="fitur__slide swiper-slide">
-								<div class="fitur__content">
-									<div class="fitur__img-box">
-										<div class="fitur__shape"></div>
-										<img src="assets/img/fitur_video.png" alt="" class="fitur__img">
-									</div>
-									<h3 class="fitur__title">Video/Youtube</h3>
-								</div>
-							</div>
-							<!-- 10 -->
-							<div class="fitur__slide swiper-slide">
-								<div class="fitur__content">
-									<div class="fitur__img-box">
-										<div class="fitur__shape"></div>
-										<img src="assets/img/fitur_music.png" alt="" class="fitur__img">
-									</div>
-									<h3 class="fitur__title">Backsound</h3>
-								</div>
-							</div>
-							<!-- 11 -->
-							<div class="fitur__slide swiper-slide">
-								<div class="fitur__content">
-									<div class="fitur__img-box">
-										<div class="fitur__shape"></div>
-										<img src="assets/img/fitur_rsvp.png" alt="" class="fitur__img">
-									</div>
-									<h3 class="fitur__title">RSVP</h3>
-								</div>
-							</div>
-							<!-- 12 -->
-							<div class="fitur__slide swiper-slide">
-								<div class="fitur__content">
-									<div class="fitur__img-box">
-										<div class="fitur__shape"></div>
-										<img src="assets/img/fitur_messagebox.png" alt="" class="fitur__img">
-									</div>
-									<h3 class="fitur__title">Message Box</h3>
-								</div>
-							</div>
-							<!-- 13 -->
-							<div class="fitur__slide swiper-slide">
-								<div class="fitur__content">
-									<div class="fitur__img-box">
-										<div class="fitur__shape"></div>
-										<img src="assets/img/fitur_gift.png" alt="" class="fitur__img">
-									</div>
-									<h3 class="fitur__title">Hadiah Pernikahan</h3>
-								</div>
-							</div>
-							<!-- 14 -->
-							<div class="fitur__slide swiper-slide">
-								<div class="fitur__content">
-									<div class="fitur__img-box">
-										<div class="fitur__shape"></div>
-										<img src="assets/img/fitur_story.png" alt="" class="fitur__img">
-									</div>
-									<h3 class="fitur__title">Kisah Cinta</h3>
-								</div>
-							</div>
-							<!-- 15 -->
-							<div class="fitur__slide swiper-slide">
-								<div class="fitur__content">
-									<div class="fitur__img-box">
-										<div class="fitur__shape"></div>
-										<img src="assets/img/fitur_bridesmaid.png" alt="" class="fitur__img">
-									</div>
-									<h3 class="fitur__title">Bridesmaid</h3>
-								</div>
-							</div>
-							<!-- 16 -->
-							<div class="fitur__slide swiper-slide">
-								<div class="fitur__content">
-									<div class="fitur__img-box">
-										<div class="fitur__shape"></div>
-										<img src="assets/img/fitur_bestman.png" alt="" class="fitur__img">
-									</div>
-									<h3 class="fitur__title">Groomsmen</h3>
-								</div>
-							</div>
-							<!-- 17 -->
-							<div class="fitur__slide swiper-slide">
-								<div class="fitur__content">
-									<div class="fitur__img-box">
-										<div class="fitur__shape"></div>
-										<img src="assets/img/fitur_prokes.png" alt="" class="fitur__img">
-									</div>
-									<h3 class="fitur__title">Prokes</h3>
-								</div>
-							</div>
-							<!-- 18 -->
-							<div class="fitur__slide swiper-slide">
-								<div class="fitur__content">
-									<div class="fitur__img-box">
-										<div class="fitur__shape"></div>
-										<img src="assets/img/fitur_password.png" alt="" class="fitur__img">
-									</div>
-									<h3 class="fitur__title">Password Undangan</h3>
-								</div>
-							</div>
-							<!-- 19 -->
-							<div class="fitur__slide swiper-slide">
-								<div class="fitur__content">
-									<div class="fitur__img-box">
-										<div class="fitur__shape"></div>
-										<img src="assets/img/revisi_budget.png" alt="" class="fitur__img">
-									</div>
-									<h3 class="fitur__title">Revisi Sepuasnya</h3>
-								</div>
-							</div>
+			<div class="fitur__container swiper" data-aos="fade-down">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="fitur__content">
+							<img src="assets/img/fitur_responsive.png" alt="" class="fitur__img">
+							<h3 class="fitur__title">Responsive</h3>
 						</div>
-						<div class="swiper-pagination"></div>
 					</div>
+					<div class="swiper-slide">
+						<div class="fitur__content">
+							<img src="assets/img/fitur_design.png" alt="" class="fitur__img">
+							<h3 class="fitur__title">Desain Keren</h3>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="fitur__content">
+							<img src="assets/img/fitur_couple.png" alt="" class="fitur__img">
+							<h3 class="fitur__title">Info Mempelai</h3>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="fitur__content">
+							<img src="assets/img/fitur_event.png" alt="" class="fitur__img">
+							<h3 class="fitur__title">Detail Acara</h3>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="fitur__content">
+							<img src="assets/img/fitur_timer.png" alt="" class="fitur__img">
+							<h3 class="fitur__title">Countdown Timer</h3>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="fitur__content">
+							<img src="assets/img/fitur_map.png" alt="" class="fitur__img">
+							<h3 class="fitur__title">Google Maps</h3>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="fitur__content">
+							<img src="assets/img/fitur_wish.png" alt="" class="fitur__img">
+							<h3 class="fitur__title">Quotes</h3>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="fitur__content">
+							<img src="assets/img/fitur_gallery.png" alt="" class="fitur__img">
+							<h3 class="fitur__title">Galeri</h3>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="fitur__content">
+							<img src="assets/img/fitur_video.png" alt="" class="fitur__img">
+							<h3 class="fitur__title">Video/Youtube</h3>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="fitur__content">
+							<img src="assets/img/fitur_music.png" alt="" class="fitur__img">
+							<h3 class="fitur__title">Backsound</h3>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="fitur__content">
+							<img src="assets/img/fitur_rsvp.png" alt="" class="fitur__img">
+							<h3 class="fitur__title">RSVP</h3>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="fitur__content">
+							<img src="assets/img/fitur_messagebox.png" alt="" class="fitur__img">
+							<h3 class="fitur__title">Message Box</h3>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="fitur__content">
+							<img src="assets/img/fitur_gift.png" alt="" class="fitur__img">
+							<h3 class="fitur__title">Hadiah Pernikahan</h3>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="fitur__content">
+							<img src="assets/img/fitur_story.png" alt="" class="fitur__img">
+							<h3 class="fitur__title">Kisah Cinta</h3>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="fitur__content">
+							<img src="assets/img/fitur_bridesmaid.png" alt="" class="fitur__img">
+							<h3 class="fitur__title">Bridesmaid</h3>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="fitur__content">
+							<img src="assets/img/fitur_bestman.png" alt="" class="fitur__img">
+							<h3 class="fitur__title">Groomsmen</h3>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="fitur__content">
+							<img src="assets/img/fitur_prokes.png" alt="" class="fitur__img">
+							<h3 class="fitur__title">Prokes</h3>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="fitur__content">
+							<img src="assets/img/fitur_password.png" alt="" class="fitur__img">
+							<h3 class="fitur__title">Password Undangan</h3>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="fitur__content">
+							<img src="assets/img/revisi_budget.png" alt="" class="fitur__img">
+							<h3 class="fitur__title">Revisi Sepuasnya</h3>
+						</div>
+					</div>
+				</div>
+
+				<div class="swiper-button-next">
+					<i class='bx bx-chevron-right'></i>
+				</div>
+
+				<div class="swiper-button-prev">
+					<i class='bx bx-chevron-left'></i>
 				</div>
 			</div>
 		</section>
@@ -384,22 +1667,22 @@
 				<div class="paket__container" data-aos="fade-down">
 					<div class="paket__cards swiper">
 						<div class="swiper-wrapper">
-							<!-- 1 -->
+							<!-- PAKET BASIC -->
 							<div class="paket__card swiper-slide">
 								<div class="paket__card-content">
 									<div class="ribbon__box-img">
 										<img src="assets/img/ribbon.png" alt="" class="ribbon__img">
-										<span class="ribbon__title">Gold</span>
+										<span class="ribbon__title">Basic</span>
 									</div>
 
 									<div class="paket__list grid">
 										<p class="paket__item">
 											<i class='bx bxs-check-square paket__icon'></i>
-											<span>Desain Template Premium</span>
+											<span>Desain Template Basic</span>
 										</p>
 										<p class="paket__item">
 											<i class='bx bxs-check-square paket__icon'></i>
-											<span>Slider Foto Diawal Undangan</span>
+											<span>Tanpa Foto (Ilustrasi)</span>
 										</p>
 										<p class="paket__item">
 											<i class='bx bxs-check-square paket__icon'></i>
@@ -415,43 +1698,19 @@
 										</p>
 										<p class="paket__item">
 											<i class='bx bxs-check-square paket__icon'></i>
-											<span>Foto Galeri (Unlimited)</span>
+											<span>Backsound (Autoplay)</span>
 										</p>
 										<p class="paket__item">
 											<i class='bx bxs-check-square paket__icon'></i>
-											<span>Video/Youtube (Unlimited)</span>
+											<span>RSVP (Konfirmasi Kehadiran)</span>
 										</p>
 										<p class="paket__item">
 											<i class='bx bxs-check-square paket__icon'></i>
-											<span>Backsound Pilihan</span>
-										</p>
-										<p class="paket__item">
-											<i class='bx bxs-check-square paket__icon'></i>
-											<span>RSVP</span>
-										</p>
-										<p class="paket__item">
-											<i class='bx bxs-check-square paket__icon'></i>
-											<span>Message Box</span>
-										</p>
-										<p class="paket__item">
-											<i class='bx bxs-check-square paket__icon'></i>
-											<span>Hadiah Pernikahan</span>
-										</p>
-										<p class="paket__item">
-											<i class='bx bxs-check-square paket__icon'></i>
-											<span>Kisah Cinta</span>
-										</p>
-										<p class="paket__item">
-											<i class='bx bxs-check-square paket__icon'></i>
-											<span>Groomsmen & Bridesmaid</span>
+											<span>Kotak Pesan</span>
 										</p>
 										<p class="paket__item">
 											<i class='bx bxs-check-square paket__icon'></i>
 											<span>Protokol Kesehatan</span>
-										</p>
-										<p class="paket__item">
-											<i class='bx bxs-check-square paket__icon'></i>
-											<span>Password Invitation</span>
 										</p>
 										<p class="paket__item">
 											<i class='bx bxs-check-square paket__icon'></i>
@@ -461,12 +1720,70 @@
 
 									<div class="paket__price">
 										<img src="assets/img/salary.png" alt="" class="price__icon">
-										<span>Rp. 350.000,-</span>
+										<span>Rp. 65.000,-</span>
 									</div>
 								</div>
 							</div>
 
-							<!-- 2 -->
+							<!-- PAKET BRONZE -->
+							<div class="paket__card swiper-slide">
+								<div class="paket__card-content">
+									<div class="ribbon__box-img">
+										<img src="assets/img/ribbon.png" alt="" class="ribbon__img">
+										<span class="ribbon__title">Bronze</span>
+									</div>
+
+									<div class="paket__list grid">
+										<p class="paket__item">
+											<i class='bx bxs-check-square paket__icon'></i>
+											<span>Desain Template Premium</span>
+										</p>
+										<p class="paket__item">
+											<i class='bx bxs-check-square paket__icon'></i>
+											<span>Countdown Timer</span>
+										</p>
+										<p class="paket__item">
+											<i class='bx bxs-check-square paket__icon'></i>
+											<span>Google Maps</span>
+										</p>
+										<p class="paket__item">
+											<i class='bx bxs-check-square paket__icon'></i>
+											<span>Quotes</span>
+										</p>
+										<p class="paket__item">
+											<i class='bx bxs-check-square paket__icon'></i>
+											<span>Foto Galeri (Max. 6)</span>
+										</p>
+										<p class="paket__item">
+											<i class='bx bxs-check-square paket__icon'></i>
+											<span>Backsound (Autoplay)</span>
+										</p>
+										<p class="paket__item">
+											<i class='bx bxs-check-square paket__icon'></i>
+											<span>RSVP (Konfirmasi Kehadiran)</span>
+										</p>
+										<p class="paket__item">
+											<i class='bx bxs-check-square paket__icon'></i>
+											<span>Kotak Pesan</span>
+										</p>
+										<p class="paket__item">
+											<i class='bx bxs-check-square paket__icon'></i>
+											<span>Protokol Kesehatan</span>
+										</p>
+										<p class="paket__item">
+											<i class='bx bxs-check-square paket__icon'></i>
+											<span>Revisi Sepuasnya</span>
+										</p>
+									</div>
+
+									<div class="paket__price">
+										<img src="assets/img/salary.png" alt="" class="price__icon">
+										<span>Rp. 125.000,-</span>
+									</div>
+								</div>
+							</div>
+
+							<!-- PAKET SILVER -->
 							<div class="paket__card swiper-slide">
 								<div class="paket__card-content">
 									<div class="ribbon__box-img">
@@ -505,15 +1822,15 @@
 										</p>
 										<p class="paket__item">
 											<i class='bx bxs-check-square paket__icon'></i>
-											<span>Backsound Pilihan</span>
+											<span>Backsound (Autoplay)</span>
 										</p>
 										<p class="paket__item">
 											<i class='bx bxs-check-square paket__icon'></i>
-											<span>RSVP</span>
+											<span>RSVP (Konfirmasi Kehadiran)</span>
 										</p>
 										<p class="paket__item">
 											<i class='bx bxs-check-square paket__icon'></i>
-											<span>Message Box</span>
+											<span>Kotak Pesan</span>
 										</p>
 										<p class="paket__item">
 											<i class='bx bxs-check-square paket__icon'></i>
@@ -532,17 +1849,17 @@
 
 									<div class="paket__price">
 										<img src="assets/img/salary.png" alt="" class="price__icon">
-										<span>Rp. 250.000,-</span>
+										<span>Rp. 225.000,-</span>
 									</div>
 								</div>
 							</div>
 
-							<!-- 3 -->
+							<!-- PAKET GOLD -->
 							<div class="paket__card swiper-slide">
 								<div class="paket__card-content">
 									<div class="ribbon__box-img">
 										<img src="assets/img/ribbon.png" alt="" class="ribbon__img">
-										<span class="ribbon__title">Bronze</span>
+										<span class="ribbon__title">Gold</span>
 									</div>
 
 									<div class="paket__list grid">
@@ -552,61 +1869,7 @@
 										</p>
 										<p class="paket__item">
 											<i class='bx bxs-check-square paket__icon'></i>
-											<span>Countdown Timer</span>
-										</p>
-										<p class="paket__item">
-											<i class='bx bxs-check-square paket__icon'></i>
-											<span>Google Maps</span>
-										</p>
-										<p class="paket__item">
-											<i class='bx bxs-check-square paket__icon'></i>
-											<span>Quotes</span>
-										</p>
-										<p class="paket__item">
-											<i class='bx bxs-check-square paket__icon'></i>
-											<span>Foto Galeri (Max. 6)</span>
-										</p>
-										<p class="paket__item">
-											<i class='bx bxs-check-square paket__icon'></i>
-											<span>Backsound Pilihan</span>
-										</p>
-										<p class="paket__item">
-											<i class='bx bxs-check-square paket__icon'></i>
-											<span>Message Box via WhatsApp</span>
-										</p>
-										<p class="paket__item">
-											<i class='bx bxs-check-square paket__icon'></i>
-											<span>Protokol Kesehatan</span>
-										</p>
-										<p class="paket__item">
-											<i class='bx bxs-check-square paket__icon'></i>
-											<span>Revisi Sepuasnya</span>
-										</p>
-									</div>
-
-									<div class="paket__price">
-										<img src="assets/img/salary.png" alt="" class="price__icon">
-										<span>Rp. 150.000,-</span>
-									</div>
-								</div>
-							</div>
-
-							<!-- 4 -->
-							<div class="paket__card swiper-slide">
-								<div class="paket__card-content">
-									<div class="ribbon__box-img">
-										<img src="assets/img/ribbon.png" alt="" class="ribbon__img">
-										<span class="ribbon__title">Basic</span>
-									</div>
-
-									<div class="paket__list grid">
-										<p class="paket__item">
-											<i class='bx bxs-check-square paket__icon'></i>
-											<span>Desain Template Basic</span>
-										</p>
-										<p class="paket__item">
-											<i class='bx bxs-check-square paket__icon'></i>
-											<span>Tanpa Foto (Ilustrasi)</span>
+											<span>Slider Foto Diawal Undangan</span>
 										</p>
 										<p class="paket__item">
 											<i class='bx bxs-check-square paket__icon'></i>
@@ -622,11 +1885,43 @@
 										</p>
 										<p class="paket__item">
 											<i class='bx bxs-check-square paket__icon'></i>
-											<span>Backsound Pilihan</span>
+											<span>Foto Galeri (Unlimited)</span>
 										</p>
 										<p class="paket__item">
 											<i class='bx bxs-check-square paket__icon'></i>
-											<span>Message Box via WhatsApp</span>
+											<span>Video/Youtube (Unlimited)</span>
+										</p>
+										<p class="paket__item">
+											<i class='bx bxs-check-square paket__icon'></i>
+											<span>Backsound (Autoplay)</span>
+										</p>
+										<p class="paket__item">
+											<i class='bx bxs-check-square paket__icon'></i>
+											<span>RSVP (Konfirmasi Kehadiran)</span>
+										</p>
+										<p class="paket__item">
+											<i class='bx bxs-check-square paket__icon'></i>
+											<span>Kotak Pesan</span>
+										</p>
+										<p class="paket__item">
+											<i class='bx bxs-check-square paket__icon'></i>
+											<span>Hadiah Pernikahan</span>
+										</p>
+										<p class="paket__item">
+											<i class='bx bxs-check-square paket__icon'></i>
+											<span>Kisah Cinta</span>
+										</p>
+										<p class="paket__item">
+											<i class='bx bxs-check-square paket__icon'></i>
+											<span>Groomsmen & Bridesmaid</span>
+										</p>
+										<p class="paket__item">
+											<i class='bx bxs-check-square paket__icon'></i>
+											<span>Live Streaming</span>
+										</p>
+										<p class="paket__item">
+											<i class='bx bxs-check-square paket__icon'></i>
+											<span>Password Invitation</span>
 										</p>
 										<p class="paket__item">
 											<i class='bx bxs-check-square paket__icon'></i>
@@ -640,7 +1935,7 @@
 
 									<div class="paket__price">
 										<img src="assets/img/salary.png" alt="" class="price__icon">
-										<span>Rp. 65.000,-</span>
+										<span>Rp. 325.000,-</span>
 									</div>
 								</div>
 							</div>
@@ -671,8 +1966,9 @@
 					<img src="assets/img/gold_theme1.png" alt="" class="katalog__img">
 					<div class="katalog__data">
 						<h3 class="katalog__title">Gold - Theme 1</h3>
+						<span class="katalog__price">(Rp. 325.000,-)</span>
 						<div class="katalog__buttons">
-							<a href="https://nelly-yusnita.github.io/gold_theme1/" class="button button--flex katalog__button" target="_blank">
+							<a href="https://undang-digital-aja.github.io/gold-01/" class="button button--flex katalog__button" target="_blank">
 								<i class='bx bx-search button__icon'></i>
 								<span>Live Preview</span>
 							</a>
@@ -689,8 +1985,9 @@
 					<img src="assets/img/gold_theme2.png" alt="" class="katalog__img">
 					<div class="katalog__data">
 						<h3 class="katalog__title">Gold - Theme 2</h3>
+						<span class="katalog__price">(Rp. 325.000,-)</span>
 						<div class="katalog__buttons">
-							<a href="https://nelly-yusnita.github.io/gold_theme2/" class="button button--flex katalog__button" target="_blank">
+							<a href="https://undang-digital-aja.github.io/gold-02/" class="button button--flex katalog__button" target="_blank">
 								<i class='bx bx-search button__icon'></i>
 								<span>Live Preview</span>
 							</a>
@@ -707,8 +2004,9 @@
 					<img src="assets/img/silver_theme1.png" alt="" class="katalog__img">
 					<div class="katalog__data">
 						<h3 class="katalog__title">Silver - Theme 1</h3>
+						<span class="katalog__price">(Rp. 225.000,-)</span>
 						<div class="katalog__buttons">
-							<a href="https://nelly-yusnita.github.io/silver_theme1/" class="button button--flex katalog__button" target="_blank">
+							<a href="https://undang-digital-aja.github.io/silver-01/" class="button button--flex katalog__button" target="_blank">
 								<i class='bx bx-search button__icon'></i>
 								<span>Live Preview</span>
 							</a>
@@ -724,9 +2022,10 @@
 				<div class="katalog__content mix silver">
 					<img src="assets/img/silver_theme2.png" alt="" class="katalog__img">
 					<div class="katalog__data">
-						<h3 class="katalog__title">Silver - Theme 1</h3>
+						<h3 class="katalog__title">Silver - Theme 2</h3>
+						<span class="katalog__price">(Rp. 225.000,-)</span>
 						<div class="katalog__buttons">
-							<a href="https://nelly-yusnita.github.io/silver_theme2/" class="button button--flex katalog__button" target="_blank">
+							<a href="https://undang-digital-aja.github.io/silver-02/" class="button button--flex katalog__button" target="_blank">
 								<i class='bx bx-search button__icon'></i>
 								<span>Live Preview</span>
 							</a>
@@ -743,8 +2042,9 @@
 					<img src="assets/img/bronze_theme1.png" alt="" class="katalog__img">
 					<div class="katalog__data">
 						<h3 class="katalog__title">Bronze - Theme 1</h3>
+						<span class="katalog__price">(Rp. 125.000,-)</span>
 						<div class="katalog__buttons">
-							<a href="https://nelly-yusnita.github.io/bronze_theme1/" class="button button--flex katalog__button" target="_blank">
+							<a href="https://undang-digital-aja.github.io/bronze-01/" class="button button--flex katalog__button" target="_blank">
 								<i class='bx bx-search button__icon'></i>
 								<span>Live Preview</span>
 							</a>
@@ -761,8 +2061,9 @@
 					<img src="assets/img/bronze_theme2.png" alt="" class="katalog__img">
 					<div class="katalog__data">
 						<h3 class="katalog__title">Bronze - Theme 2</h3>
+						<span class="katalog__price">(Rp. 125.000,-)</span>
 						<div class="katalog__buttons">
-							<a href="https://nelly-yusnita.github.io/bronze_theme2/" class="button button--flex katalog__button" target="_blank">
+							<a href="https://undang-digital-aja.github.io/bronze-02/" class="button button--flex katalog__button" target="_blank">
 								<i class='bx bx-search button__icon'></i>
 								<span>Live Preview</span>
 							</a>
@@ -779,8 +2080,9 @@
 					<img src="assets/img/basic_theme1.png" alt="" class="katalog__img">
 					<div class="katalog__data">
 						<h3 class="katalog__title">Basic - Theme 1</h3>
+						<span class="katalog__price">(Rp. 65.000,-)</span>
 						<div class="katalog__buttons">
-							<a href="https://nelly-yusnita.github.io/basic_theme1/" class="button button--flex katalog__button" target="_blank">
+							<a href="https://undang-digital-aja.github.io/basic-01/" class="button button--flex katalog__button" target="_blank">
 								<i class='bx bx-search button__icon'></i>
 								<span>Live Preview</span>
 							</a>
@@ -797,8 +2099,9 @@
 					<img src="assets/img/basic_theme2.png" alt="" class="katalog__img">
 					<div class="katalog__data">
 						<h3 class="katalog__title">Basic - Theme 2</h3>
+						<span class="katalog__price">(Rp. 65.000,-)</span>
 						<div class="katalog__buttons">
-							<a href="https://nelly-yusnita.github.io/basic_theme2/" class="button button--flex katalog__button" target="_blank">
+							<a href="https://undang-digital-aja.github.io/basic-02/" class="button button--flex katalog__button" target="_blank">
 								<i class='bx bx-search button__icon'></i>
 								<span>Live Preview</span>
 							</a>
@@ -815,8 +2118,9 @@
 					<img src="assets/img/basic_theme3.png" alt="" class="katalog__img">
 					<div class="katalog__data">
 						<h3 class="katalog__title">Basic - Theme 3</h3>
+						<span class="katalog__price">(Rp. 65.000,-)</span>
 						<div class="katalog__buttons">
-							<a href="https://nelly-yusnita.github.io/basic_theme3/" class="button button--flex katalog__button" target="_blank">
+							<a href="https://undang-digital-aja.github.io/basic-03/" class="button button--flex katalog__button" target="_blank">
 								<i class='bx bx-search button__icon'></i>
 								<span>Live Preview</span>
 							</a>
@@ -834,7 +2138,7 @@
 		<!-- ===== TESTIMONIAL ===== -->
 		<section class="testimonial section container">
 			<div class="testimonial__container grid">
-				<div class="swiper testimonial-swiper" data-aos="fade-right">
+				<div class="testimonial__swiper swiper" data-aos="fade-right">
 					<div class="swiper-wrapper">
 						<!-- 1 -->
 						<div class="testimonial__card swiper-slide">
@@ -1027,11 +2331,11 @@
 					</a>
 				</div>
 				<!-- 3 -->
-				<div class="banner__box">
+				<!-- <div class="banner__box">
 					<a href="#" target="_blank">
 						<img src="assets/img/shopee.png" alt="" class="banner__img">
 					</a>
-				</div>
+				</div> -->
 			</div>
 		</section>
 		<!-- ===== end banner ===== -->
@@ -1039,8 +2343,8 @@
 	<!-- ===== end main ===== -->
 
 	<!-- ===== FOOTER ===== -->
-	<footer class="footer container">
-		<div class="footer__container" data-aos="fade-down">
+	<footer class="footer">
+		<div class="footer__container container" data-aos="fade-down">
 			<h2 class="footer__title">Thank You!</h2>
 			<span class="footer__description">For visiting our website</span>
 		</div>
@@ -1055,21 +2359,6 @@
 	</a>
 	<!-- ===== end scroll up ===== -->
 
-	<!-- ===== POPUP ===== -->
-	<!-- <div class="popup" id="popup">
-		<div class="popup__container">
-			<div class="popup__close" id="popup-close">
-				<i class='bx bx-x popup__close-icon'></i>
-			</div>
-
-			<div class="popup__content">
-				<h2 class="popup__title">PROMO ALERT!!</h2>
-				<p class="popup__description">Dapatkan potongan harga hingga 30% untuk setiap pembelian undangan digital. HARGA PROMO MULAI DARI RP. 45.500 saja!!</p>
-			</div>
-		</div>
-	</div> -->
-	<!-- ===== end popup ===== -->
-
 	<!-- ===== SWIPER JS ===== -->
 	<script src="assets/js/swiper-bundle.min.js"></script>
 
@@ -1080,6 +2369,257 @@
 	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
 	<!-- ===== MAIN JS ===== -->
-	<script src="assets/js/main.js"></script>
+	<script>
+		// ===== SHOW MENU ===== //
+		const menuButton = document.getElementById('menu-button');
+		const navMenu = document.getElementById('nav-menu');
+
+		menuButton.addEventListener('click', () =>{
+			navMenu.classList.toggle('show-menu');
+			menuButton.classList.toggle('close-menu');
+		})
+		// ===== end show menu ===== //
+
+		// ===== REMOVE MENU MOBILE ===== //
+		const navLink = document.querySelectorAll('.nav__link');
+
+		function linkAction(){
+			const navMenu = document.getElementById('nav-menu')
+
+			// When we click on each nav__link, we remove the show-menu class
+			navMenu.classList.remove('show-menu');
+			menuButton.classList.remove('close-menu');
+		}
+		navLink.forEach(n => n.addEventListener('click', linkAction));
+		// ===== end remove menu mobile ===== //
+
+		/* ===== SCROLL SECTIONS ACTIVE LINK ===== */
+		const sections = document.querySelectorAll('section[id]');
+
+		function scrollActive(){
+			const scrollY = window.pageYOffset
+
+			sections.forEach(current =>{
+				const sectionHeight = current.offsetHeight
+				const sectionTop = current.offsetTop - 50;
+				sectionId = current.getAttribute('id')
+
+				if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+					document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
+				}else{
+					document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
+				}
+			})
+		}
+		window.addEventListener('scroll', scrollActive);
+		// ===== end scroll sections active link ===== //
+
+		/* ===== CHANGE BACKGROUND HEADER ===== */
+		function scrollHeader(){
+			const nav = document.getElementById('header')
+
+			if (this.scrollY >= 200) {
+				nav.classList.add('scroll-header');
+			}else{
+				nav.classList.remove('scroll-header');
+			}
+		}
+		window.addEventListener('scroll', scrollHeader);
+		// ===== end change background header ===== //
+
+		// ===== HOME SLIDES ===== //
+		const homeSwiper = new Swiper(".home__slides", {
+			spaceBetween: 30,
+			effect: "fade",
+
+			autoplay: {
+				delay: 4500,
+				disableOnInteraction: false,
+			},
+
+			navigation: {
+				nextEl: ".swiper-button-next",
+				prevEl: ".swiper-button-prev",
+			},
+
+			pagination: {
+				el: ".swiper-pagination",
+				clickable: true,
+			},
+		});
+		// ===== end home slider ===== //
+
+		// ===== FITUR ===== //
+		const menuSwiper = new Swiper('.fitur__container', {
+			spaceBetween: 25,
+			loop: true,
+			grabCursor: true,
+			
+			navigation: {
+				nextEl: ".swiper-button-next",
+				prevEl: ".swiper-button-prev",
+			},
+
+			autoplay: {
+				delay: 4500,
+				disableOnInteraction: false,
+			},
+
+			breakpoints: {
+				340: {
+					slidesPerView: 1,
+				},
+				440: {
+					slidesPerView: 2,
+				},
+				640: {
+					slidesPerView: 3,
+				},
+				1024: {
+					slidesPerView: 3,
+				},
+			}
+		});
+		// ===== end fitur ===== //
+
+		// ===== PAKET ===== //
+		const paketSwiper = new Swiper('.paket__cards', {
+			spaceBetween: 16,
+			loop: true,
+			grabCursor: true,
+
+			// autoplay: {
+			// 	delay: 5000,
+			// 	disableOnInteraction: false,
+			// },
+
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+
+			breakpoints: {
+				640: {
+					slidesPerView: 1,
+				},
+				1024: {
+					slidesPerView: 2,
+				},
+			}
+		})
+		// ===== end paket ===== //
+
+		// ===== MIXITUP FILTER KATALOG ===== //
+		const mixer = mixitup(".katalog__container", {
+			selectors: {
+				target: '.katalog__content'
+			},
+			animation: {
+				duration: 400
+			}
+		});
+
+		/* Link active portfolio */ 
+		const linkKatalog = document.querySelectorAll('.katalog__item');
+
+		function activeKatalog(){
+			if(linkKatalog){
+				linkKatalog.forEach(l=> l.classList.remove('active-katalog'))
+				this.classList.add('active-katalog')
+			}
+		}
+		linkKatalog.forEach(l=> l.addEventListener('click', activeKatalog));
+		// ===== end mixitup filter katalog ===== //
+
+		// ===== TESTIMONIAL ===== //
+		const testimonialSwiper = new Swiper(".testimonial__swiper", {
+			spaceBetween: 30,
+
+			navigation: {
+				nextEl: ".swiper-button-next",
+				prevEl: ".swiper-button-prev",
+			},
+		});
+		// ===== end testimonial ===== //
+
+		// ===== FAQ ACCORDION ===== //
+		const accordionItems = document.querySelectorAll('.questions__item');
+
+		accordionItems.forEach((item) =>{
+			const accordionHeader = item.querySelector('.questions__header');
+
+			accordionHeader.addEventListener('click', () =>{
+				const openItem = document.querySelector('.accordion-open');
+
+				toggleItem(item)
+
+				if(openItem && openItem !== item){
+					toggleItem(openItem)
+				}
+			})
+		})
+
+		const toggleItem = (item) =>{
+			const accordionContent = item.querySelector('.questions__content')
+
+			if(item.classList.contains('accordion-open')){
+				accordionContent.removeAttribute('style')
+				item.classList.remove('accordion-open')
+			}else{
+				accordionContent.style.height = accordionContent.scrollHeight + 'px'
+				item.classList.add('accordion-open')
+			}
+		}
+		// ===== end faq accordion ===== //
+
+		// ===== SCROLL UP ===== //
+		function scrollUp(){
+			const scrollUp = document.getElementById('scroll-up');
+
+			// When the scroll is higher than 400 viewport height, add the show-scroll class to the a tag with the scroll-top class
+			if(this.scrollY >= 400) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
+		}
+		window.addEventListener('scroll', scrollUp);
+		// ===== end scroll up ===== //
+
+		// ===== AOS ANIMATE ===== //
+		// 1. home -> .home__content
+
+		// 2. about -> .about__img, .about__data
+
+		// 3. section title -> .section-title
+		const sectionTitle = document.querySelectorAll('.section-title');
+		sectionTitle.forEach((n, i) => {
+			n.dataset.aos = 'fade-down';
+		});
+
+		// 4. fitur -> .fitur__container
+
+		// 5. paket -> .paket__container
+
+		// 6. katalog -> .katalog__nav, .katalog__container 
+
+		// 7. testimonial -> .testimonial__swiper, .testimonial__images
+
+		// 8. faqs -> .questions__item
+		const questionsItem = document.querySelectorAll('.questions__item');
+		questionsItem.forEach((n, i) => {
+			n.dataset.aos = 'fade-down';
+			n.dataset.aosDelay = i * 100;
+		});
+
+		// 9. order -> .order__images, .order__data
+
+		// 10. banner -> .banner__container
+
+		// 12. footer -> .footer__container
+
+		AOS.init({
+			duration: 1500,
+			once: true,  
+		});
+		// ===== end aos animate ===== //
+	</script>	
+	<!-- ===== end main js ===== -->
 </body>
 </html>
