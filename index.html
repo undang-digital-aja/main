@@ -257,6 +257,19 @@
 				width: 135px;
 			}
 		}
+		.nav__toggle,
+		.nav__close{
+			font-size: 1.5rem;
+			cursor: pointer;
+		}
+		.nav__toggle{
+			color: var(--white-color);
+		}
+		.nav__close{
+			position: absolute;
+			right: 1rem;
+			top: 1rem;
+		}
 		.nav__list{
 			display: -webkit-box;
 			display: -ms-flexbox;
@@ -277,56 +290,6 @@
 		}
 		.nav__link{
 			color: var(--title-color) !important;
-		}
-
-		/* Hamburger Nav */
-		.hamburger__nav{
-			cursor: pointer;
-			width: 24px;
-			height: 24px;
-			border-radius: .5rem;
-			position: relative;
-			background: none;
-			border: none;
-			-webkit-transition: all 0.25s;
-			transition: all 0.25s;
-			z-index: var(--z-fixed);
-			margin-left: 1rem;
-		}
-		.hamburger__top,
-		.hamburger__middle,
-		.hamburger__bottom{
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 24px;
-			height: 2px;
-			background: var(--white-color);
-			-webkit-transform: rotate(0);
-					transform: rotate(0);
-			-webkit-transition: all 0.5s;
-			transition: all 0.5s;
-		}
-		.hamburger__middle{
-			-webkit-transform: translateY(7px);
-					transform: translateY(7px);
-		}
-		.hamburger__bottom{
-			-webkit-transform: translateY(14px);
-					transform: translateY(14px);
-		}
-		.close-menu .hamburger__top{
-			background-color: var(--title-color) !important;
-			-webkit-transform: rotate(45deg) translateY(6px) translateX(6px) !important;
-					transform: rotate(45deg) translateY(6px) translateX(6px) !important;
-		}
-		.close-menu .hamburger__middle{
-			display: none;
-		}
-		.close-menu .hamburger__bottom{
-			background-color: var(--title-color) !important; 
-			-webkit-transform: rotate(-45deg) translateY(6px) translateX(-6px) !important;
-					transform: rotate(-45deg) translateY(6px) translateX(-6px) !important;
 		}
 
 		/* Show menu */
@@ -354,16 +317,12 @@
 			box-shadow: 0 2px 4px rgba(0,0,0,.1);
 		}
 		.scroll-header .nav__link,
-		.scroll-header .nav__logo{
+		.scroll-header .nav__logo,
+		.scroll-header .nav__toggle{
 			color: var(--title-color) !important;
 		}
 		.scroll-header .active-link::before{
 			background-color: var(--brown-color) !important;
-		}
-		.scroll-header .hamburger__top,
-		.scroll-header .hamburger__middle,
-		.scroll-header .hamburger__bottom{
-			background-color: var(--title-color);
 		}
 		/* ===== end nav ===== */
 
@@ -1172,7 +1131,10 @@
 			/* ===== end reusable css classes ===== */
 
 			/* ===== NAV ====*/
-			.hamburger__nav,
+			.nav__toggle,
+			.nav__close{
+				display: none;
+			}
 			.nav__img{
 				display: none;
 			}
@@ -1384,6 +1346,9 @@
 			<a href="#" class="nav__logo">Undang Digital Aja</a>
 
 			<div class="nav__menu" id="nav-menu">
+				<div class="nav__close" id="nav-close">
+					<i class='bx bx-x' ></i>
+				</div>
 				<ul class="nav__list">
 					<li class="nav__item">
 						<a href="#home" class="nav__link active-link">Home</a>
@@ -1411,10 +1376,8 @@
 				<img src="assets/img/wedding_ring.png" alt="" class="nav__img">
 			</div>
 
-			<div class="hamburger__nav" id="menu-button">
-				<span class="hamburger__top"></span>
-				<span class="hamburger__middle"></span>
-				<span class="hamburger__bottom"></span>
+			<div class="nav__toggle" id="nav-toggle">
+				<i class='bx bx-menu'></i>
 			</div>
 		</nav>
 	</header>
@@ -2371,13 +2334,19 @@
 	<!-- ===== MAIN JS ===== -->
 	<script>
 		// ===== SHOW MENU ===== //
-		const menuButton = document.getElementById('menu-button');
-		const navMenu = document.getElementById('nav-menu');
+		const navMenu = document.getElementById('nav-menu'),
+				toggleNav = document.getElementById('nav-toggle'),
+				closeNav = document.getElementById('nav-close');
 
-		menuButton.addEventListener('click', () =>{
-			navMenu.classList.toggle('show-menu');
-			menuButton.classList.toggle('close-menu');
-		})
+		// Show Menu
+		toggleNav.addEventListener('click', ()=>{
+			navMenu.classList.toggle('show-menu')
+		});
+
+		// Hide Menu
+		closeNav.addEventListener('click', ()=>{
+			navMenu.classList.remove('show-menu')
+		});
 		// ===== end show menu ===== //
 
 		// ===== REMOVE MENU MOBILE ===== //
